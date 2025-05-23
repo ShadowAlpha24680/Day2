@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swayam Ajit Bhagat - Web Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar for webkit browsers */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ef4444; /* rose-500 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #dc2626; /* rose-600 */
+        }
+
+        /* Dark mode scrollbar */
+        .dark ::-webkit-scrollbar-track {
+            background: #374151; /* gray-700 */
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #f43f5e; /* rose-500 (same as light, or a bit brighter if needed) */
+        }
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background: #e11d48; /* rose-600 */
+        }
+
+        /* Styles for the content sections to match the reddish theme */
+        .content-section {
+            background-color: #fecaca; /* red-200 for a lighter shade than screenshots */
+            border-radius: 0.75rem; /* rounded-xl */
+            padding: 2rem; /* p-8 */
+            margin-bottom: 2rem; /* mb-8 */
+            color: #374151; /* gray-700 */
+        }
+        .dark .content-section {
+            background-color: #7f1d1d; /* red-900 for dark mode */
+            color: #f3f4f6; /* gray-100 */
+        }
+        .content-section h2 {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+            margin-bottom: 1rem; /* mb-4 */
+            color: #b91c1c; /* red-700 */
+        }
+        .dark .content-section h2 {
+            color: #fda4af; /* red-300 */
+        }
+        .content-section h3 {
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 600; /* font-semibold */
+            margin-top: 1rem; /* mt-4 */
+            margin-bottom: 0.5rem; /* mb-2 */
+            color: #c2410c; /* orange-600, slightly different for subheadings */
+        }
+        .dark .content-section h3 {
+             color: #fb923c; /* orange-400 */
+        }
+        .content-section ul {
+            list-style-position: inside;
+            padding-left: 0.5rem;
+        }
+        .content-section li {
+            margin-bottom: 0.5rem; /* mb-2 */
+        }
+        .content-section a {
+            color: #1d4ed8; /* blue-700 */
+            text-decoration: underline;
+        }
+        .dark .content-section a {
+            color: #60a5fa; /* blue-400 */
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary {
+            background-color: #ef4444; /* rose-500 */
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #dc2626; /* rose-600 */
+        }
+        .dark .btn-primary {
+            background-color: #f43f5e; 
+            color: white;
+        }
+        .dark .btn-primary:hover {
+            background-color: #e11d48;
+        }
+
+        /* Background gradient from screenshot */
+        .body-bg-light {
+             background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%); /* Light cyan gradient */
+        }
+        .body-bg-dark {
+            background-color: #1f2937; /* gray-800 */
+        }
+        .welcome-banner {
+            background-color: #fb7185; /* rose-400 */
+            color: white;
+        }
+        .dark .welcome-banner {
+            background-color: #e11d48; /* rose-600 */
+        }
+
+    </style>
+</head>
+<body class="body-bg-light text-gray-800 dark:text-gray-200 transition-colors duration-300">
+
+    <nav class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-rose-600 dark:text-rose-400">Swayam A. Bhagat</a>
+            <div class="hidden md:flex space-x-4 items-center">
+                <a href="#home" class="text-gray-700 dark:text-gray-300 hover:text-rose-500 dark:hover:text-rose-400">Home</a>
+                <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-rose-500 dark:hover:text-rose-400">About</a>
+                <a href="#achievements" class="text-gray-700 dark:text-gray-300 hover:text-rose-500 dark:hover:text-rose-400">Achievements</a>
+                <a href="#personal" class="text-gray-700 dark:text-gray-300 hover:text-rose-500 dark:hover:text-rose-400">Personal</a>
+                <a href="#blog" class="text-gray-700 dark:text-gray-300 hover:text-rose-500 dark:hover:text-rose-400">Blog</a>
+                <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-rose-500 dark:hover:text-rose-400">Contact</a>
+                <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 10.607a1 1 0 011.414-1.414l-.707-.707a1 1 0 01-1.414 1.414l.707.707zm10.607-2.121a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 111.414-1.414l.707.707zM3 11a1 1 0 100 2H2a1 1 0 100-2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                </button>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-700 dark:text-gray-300 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-3 space-y-1">
+            <a href="#home" class="block text-gray-700 dark:text-gray-300 hover:text-rose-500 dark:hover:text-rose-400 py-2">Home</a>
+            <a href="#about" class="block text-gray-700 dark:text-gray-300 hover:text-rose-500 dark:hover:text-rose-400 py-2">About</a>
+            <a href="#achievements" class="block text-gray-700 dark:text-gray-300 hover:text-rose-500 dark:hover:text-rose-400 py-2">Achievements</a>
+            <a href="#personal" class="block text-gray-700 dark:text-gray-300 hover:text-rose-500 dark:hover:text-rose-400 py-2">Personal</a>
+            <a href="#blog" class="block text-gray-700 dark:text-gray-300 hover:text-rose-500 dark:hover:text-rose-400 py-2">Blog</a>
+            <a href="#contact" class="block text-gray-700 dark:text-gray-300 hover:text-rose-500 dark:hover:text-rose-400 py-2">Contact</a>
+             <button id="theme-toggle-mobile" type="button" class="w-full text-left text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mt-2">
+                Toggle Theme
+            </button>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-6 py-8">
+        <div class="welcome-banner p-6 rounded-lg shadow-lg mb-8 text-center">
+            <h1 class="text-3xl font-bold"><i class="fas fa-hands-helping mr-2"></i>Welcome to My Personal Website!</h1>
+            <p class="mt-2 text-lg">I'm thrilled to have you here. This space is where I share my journey, achievements, and future aspirations. I hope you enjoy getting to know me better!</p>
+        </div>
+
+        <section id="home" class="pt-16 -mt-16"> <div class="flex flex-col md:flex-row items-center content-section">
+                <div class="md:w-2/3 md:pr-8 text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, It's <span class="text-rose-600 dark:text-rose-400">Swayam Ajit Bhagat</span></h1>
+                    <p class="text-2xl mb-6">I'm a <span class="font-semibold">Web Developer</span></p>
+                    <p class="mb-6 text-lg">I'm a web developer passionate about building clean, responsive, and user-focused websites. With a strong foundation in HTML, CSS, and JavaScript, I specialize in creating seamless front-end experiences and scalable web applications. I enjoy translating ideas into interactive designs and take pride in writing well-structured, maintainable code.
+Whether it's crafting a sleek landing page, developing an e-commerce platform, or integrating APIs, I focus on performance, accessibility, and usability. I'm always learning new tools and frameworks to stay current and continually improve the digital experiences I deliver.</p>
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                </div>
+                <div class="md:w-1/3 mt-8 md:mt-0 flex flex-col items-center">
+                    <img src="https://placehold.co/200x250/E0E0E0/333?text=Swayam" alt="Swayam Ajit Bhagat" class="rounded-full shadow-lg mb-4 w-48 h-60 object-cover md:w-60 md:h-72">
+                    <div class="w-full max-w-md">
+                        <img src="https://placehold.co/640x360/333333/FFFFFF?text=Portfolio+Video" alt="Portfolio Video Placeholder" class="rounded-lg shadow-lg w-full">
+                        <p class="text-xs text-center mt-1 text-gray-500 dark:text-gray-400">Video presentation placeholder</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="pt-16 -mt-16 content-section">
+            <h2 class="flex items-center"><i class="fas fa-user-circle mr-3"></i>About Me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="border-b border-rose-400 dark:border-rose-600 pb-1">Name:</h3>
+                    <p>Swayam Ajit Bhagat</p>
+                </div>
+                <div>
+                    <h3 class="border-b border-rose-400 dark:border-rose-600 pb-1">Location:</h3>
+                    <p>Mira Road, Maharashtra, India</p>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h3 class="border-b border-rose-400 dark:border-rose-600 pb-1">Education:</h3>
+                <ul class="list-disc ml-5">
+                    <li>B.Tech in Computer Science, St.John College of Science and Commerce, Palghar (Pursuing)</li>
+                    <li>Completed 12th at Thakur College of Science and Commerce</li>
+                </ul>
+            </div>
+            <div class="mt-4">
+                <h3 class="border-b border-rose-400 dark:border-rose-600 pb-1">Languages Known:</h3>
+                <ul class="list-disc ml-5">
+                    <li>English (Fluent)</li>
+                    <li>Marathi (Fluent)</li>
+                    <li>Japanese (Basic)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="achievements" class="pt-16 -mt-16 content-section">
+            <h2 class="flex items-center"><i class="fas fa-trophy mr-3"></i>Achievements</h2>
+            <ul class="list-disc ml-5 mb-6">
+                <li>Participated and Won in Anveshnam 2023 Technical Paper Presentation</li>
+                <li>Graduated with honors or distinction</li>
+                <li>Won a scholarship or academic award</li>
+                <li>Participated in academic competitions</li>
+            </ul>
+
+            <h2 class="flex items-center mt-8"><i class="fas fa-rocket mr-3"></i>Future Goals</h2>
+            <p>I believe in creating meaningful technology that improves lives. My primary goal is to become a product designer who builds tools for accessibility and education, especially in underrepresented communities.</p>
+            <p class="mt-2">In the long term, I hope to launch a startup focused on inclusive tech solutions and mentor the next generation of women and minority developers. My contribution to the world will be through empowering others to learn, grow, and thrive with the help of thoughtful, ethical technology.</p>
+        </section>
+
+        <section id="personal" class="pt-16 -mt-16 content-section">
+            <h2 class="flex items-center"><i class="fas fa-star mr-3"></i>Personal Side</h2>
+            
+            <div>
+                <h3 class="flex items-center"><i class="fas fa-paint-brush mr-2"></i>Hobbies</h3>
+                <ul class="list-disc ml-5">
+                    <li><strong>Digital Art:</strong> I love visual storytelling and often make pixel art.</li>
+                    <li><strong>Hiking & Nature Walks:</strong> Being outdoors helps me disconnect, recharge, and gain creative inspiration.</li>
+                    <li><strong>Journaling:</strong> It's a habit that keeps me grounded and self-aware.</li>
+                </ul>
+            </div>
+
+            <div class="mt-6">
+                <h3 class="flex items-center"><i class="fas fa-user-tie mr-2"></i>Favourite Role Models</h3>
+                <ul class="list-disc ml-5">
+                    <li><strong>Bill Gates:</strong> For his philanthropy and advocacy in tech and global health.</li>
+                    <li><strong>Steve Jobs:</strong> For his vision, storytelling, and dedication to design simplicity.</li>
+                    <li><strong>Marie Curie:</strong> For her scientific courage and groundbreaking research despite barriers.</li>
+                </ul>
+            </div>
+
+            <div class="mt-6">
+                <h3 class="flex items-center"><i class="fas fa-book-open mr-2"></i>Favourite Books, Websites & Startups</h3>
+                <p><strong>Books:</strong> "Deep Work" by Cal Newport, "The Design of Everyday Things" by Don Norman</p>
+                <p class="mt-1"><strong>Websites:</strong> <a href="https://www.smashingmagazine.com/" target="_blank" rel="noopener noreferrer">Smashing Magazine</a>, <a href="https://awards.com/" target="_blank" rel="noopener noreferrer">Awards</a></p>
+                <p class="mt-1"><strong>Startups:</strong> Figma - for redefining design collaboration, Notion - for balancing simplicity and power</p>
+            </div>
+
+            <div class="mt-6">
+                <h3 class="flex items-center"><i class="fas fa-hands-helping mr-2"></i>Volunteering Experience</h3>
+                <p>I regularly volunteer with Code for Good, where we help NGOs build tech solutions. I also teach basic programming at a local community center on weekends, helping kids discover the joy of coding.</p>
+            </div>
+        </section>
+
+        <section id="blog" class="pt-16 -mt-16 content-section">
+            <h2 class="flex items-center"><i class="fas fa-newspaper mr-3"></i>Blog</h2>
+            <ul class="list-disc ml-5 space-y-2">
+                <li><a href="#" class="hover:text-rose-700 dark:hover:text-rose-300">How I Got Started with Design & Code</a></li>
+                <li><a href="#" class="hover:text-rose-700 dark:hover:text-rose-300">My Favorite Tech Tools in 2023</a></li>
+                <li><a href="#" class="hover:text-rose-700 dark:hover:text-rose-300">Accessibility & Modern Web Design</a></li>
+            </ul>
+            <p class="mt-4 text-sm"><em>(Blog posts are placeholders)</em></p>
+        </section>
+
+        <section id="contact" class="pt-16 -mt-16 content-section">
+            <h2 class="flex items-center"><i class="fas fa-envelope mr-3"></i>Contact Me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <p class="mb-2"><strong class="w-20 inline-block"><i class="fas fa-phone mr-2"></i>Phone:</strong> <a href="tel:+919082852247">+91 90828 52247</a></p>
+                    <p class="mb-2"><strong class="w-20 inline-block"><i class="fab fa-whatsapp mr-2"></i>WhatsApp:</strong> <a href="https://wa.me/919082852247" target="_blank" rel="noopener noreferrer">Direct to WhatsApp</a></p>
+                    <p class="mb-2"><strong class="w-20 inline-block"><i class="fas fa-at mr-2"></i>Email:</strong> <a href="mailto:123swayam2011@sjcem.edu.in">123swayam2011@sjcem.edu.in</a></p>
+                    
+                    <h3 class="mt-6 mb-2 flex items-center"><i class="fas fa-map-marker-alt mr-2"></i>Location</h3>
+                    <p>St. John College of Engineering and Management, Palghar, Maharashtra, India.</p>
+                    <p>(Based in Palghar, Maharashtra)</p>
+                </div>
+                <div>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3757.0900762107887!2d72.78159331489208!3d19.665996986752087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be71c0ea03dd627%3A0x7920525a26180704!2sSt.%20John%20College%20of%20Engineering%20and%20Management!5e0!3m2!1sen!2sin!4v1684836101234!5m2!1sen!2sin" 
+                        width="100%" 
+                        height="300" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="rounded-lg shadow-md">
+                    </iframe>
+                     <a href="https://www.google.com/maps/place/St.+John+College+of+Engineering+and+Management/@19.665997,72.781593,15z/data=!4m6!3m5!1s0x3be71c0ea03dd627:0x7920525a26180704!8m2!3d19.6659969!4d72.783782!16s%2Fg%2F1ptxt9t7l?hl=en&entry=ttu" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 text-sm btn btn-primary text-white">View larger map</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-xl font-semibold mb-4 flex items-center justify-center"><i class="fas fa-globe mr-2"></i>Social Media</h3>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-rose-500 dark:hover:text-rose-400"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-rose-500 dark:hover:text-rose-400"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-rose-500 dark:hover:text-rose-400"><i class="fab fa-github"></i></a>
+            </div>
+            <p>&copy; <span id="currentYear"></span> Swayam Ajit Bhagat. All Rights Reserved.</p>
+            <p class="text-xs mt-2">Designed with Tailwind CSS.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for Theme Toggle, Mobile Menu, Smooth Scroll, and Current Year
+        document.addEventListener('DOMContentLoaded', function () {
+            // Theme Toggle
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
+            const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+            const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+            const body = document.body;
+            const htmlElement = document.documentElement;
+
+            // Function to apply theme
+            function applyTheme(isDark) {
+                if (isDark) {
+                    htmlElement.classList.add('dark');
+                    body.classList.remove('body-bg-light');
+                    body.classList.add('body-bg-dark');
+                    themeToggleLightIcon.classList.remove('hidden');
+                    themeToggleDarkIcon.classList.add('hidden');
+                } else {
+                    htmlElement.classList.remove('dark');
+                    body.classList.add('body-bg-light');
+                    body.classList.remove('body-bg-dark');
+                    themeToggleDarkIcon.classList.remove('hidden');
+                    themeToggleLightIcon.classList.add('hidden');
+                }
+            }
+            
+            // Check for saved theme preference or system preference
+            let isDarkMode = localStorage.getItem('color-theme') === 'dark' || 
+                             (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            applyTheme(isDarkMode);
+
+            const toggleTheme = () => {
+                isDarkMode = !isDarkMode;
+                localStorage.setItem('color-theme', isDarkMode ? 'dark' : 'light');
+                applyTheme(isDarkMode);
+            };
+
+            themeToggleBtn.addEventListener('click', toggleTheme);
+            themeToggleMobileBtn.addEventListener('click', toggleTheme);
+
+            // Mobile Menu
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when a link is clicked
+            const mobileNavLinks = mobileMenu.querySelectorAll('a');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+
+            // Smooth Scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Set Current Year in Footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
